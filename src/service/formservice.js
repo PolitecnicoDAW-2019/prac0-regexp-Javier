@@ -16,10 +16,6 @@ define(["../const/constants"],function(constants){
         return radiobutton.checked;
     }
 
-    /*const isUSAChecked = radiobutton => {
-        return radiobutton.checked;
-    }*/
-
     const validateCP = (radiobutton,code) => {
         if(!isSpainChecked(radiobutton)){
             return constants.REGEXP.USACP.test(code);
@@ -28,13 +24,17 @@ define(["../const/constants"],function(constants){
     }
 
     const validateTelephoneNumber = (radiobutton,number) => {
-
+        if(!isSpainChecked(radiobutton)){
+            return constanst.REGEXP.USTEL.test(number);
+        }
+        return constanst.REGEXP.ESTEL.test(number)
     }
 
     return{
         validateName,
         validateSurname,
         validateAddress,
-        validateCP
+        validateCP,
+        validateTelephoneNumber
     }
 })
