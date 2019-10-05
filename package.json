@@ -1,0 +1,22 @@
+{
+  "name": "practica0",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PolitecnicoDAW/prac0-regexp-Javier.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PolitecnicoDAW/prac0-regexp-Javier/issues"
+  },
+  "homepage": "https://github.com/PolitecnicoDAW/prac0-regexp-Javier#readme",
+  "devDependencies": {
+    "jasmine": "^3.5.0"
+  }
+}
