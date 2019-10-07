@@ -1,40 +1,40 @@
 define(function(){
 
 
-const getNameFieldValue = id => {
-    return document.getElementById(id).value;
+const getNameFieldValue = () => {
+    return document.getElementById("name").value;
 }
 
-const getSurnameFieldValue = id => {
-    return document.getElementById(id).value;
+const getSurnameFieldValue = () => {
+    return document.getElementById("surname").value;
 }
 
-const getAddressFieldValue = id => {
-    return document.getElementById(id).value;
+const getAddressFieldValue = () => {
+    return document.getElementById("address").value;
 }
 
-const isSpainChecked = id => {
-    return document.getElementById(id).checked;
+const isSpainChecked = () => {
+    return document.getElementById("spainButton").checked;
 }
 
-const getPostalCodeFieldValue = id => {
-    return document.getElementById(id).value;
+const getPostalCodeFieldValue = () => {
+    return document.getElementById("postalcode").value;
 }
 
-const getTelephoneNumberFieldValue = id => {
-    return document.getElementById(id).value;
+const getTelephoneNumberFieldValue = () => {
+    return document.getElementById("telehponenum").value;
 }
 
-const getMobilePhoneNumberFieldValue = id => {
-    return document.getElementById(id).value;
+const getMobilePhoneNumberFieldValue = () => {
+    return document.getElementById("mobilephonenum").value;
 }
 
-const getEmailFieldValue = id => {
-    return document.getElementById(id).value;
+const getEmailFieldValue = () => {
+    return document.getElementById("email").value;
 }
 
-const getBornDateFieldValue = id => {
-    return document.getElementById(id).value;
+const getBornDateFieldValue = () => {
+    return document.getElementById("borndate").value;
 }
 
 const setStatus = (StatusId,icon) => {
@@ -43,6 +43,15 @@ const setStatus = (StatusId,icon) => {
 
 const enableSendButton = () => {
     document.getElementById("sendbutton").removeAttribute("disabled");
+}
+
+const executeFunction = id => {
+    document.getElementById(id).addEventListener('input',(element) => {
+        if(!element.target.value.length >= 3 ){
+            return false;
+        }
+        return true;
+    })
 }
 
 return{
@@ -56,6 +65,7 @@ return{
     getEmailFieldValue,
     getBornDateFieldValue,
     setStatus,
-    enableSendButton
+    enableSendButton,
+    executeFunction
 }
 })
