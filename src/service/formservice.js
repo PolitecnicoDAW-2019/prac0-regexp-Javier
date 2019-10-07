@@ -40,6 +40,7 @@ define(["../const/constants"],function(constants){
     const validateBornDate = borndate => {
         return constants.REGEXP.BORNDATE.test(borndate)
     }
+
     return{
         validateName,
         validateSurname,
@@ -48,6 +49,6 @@ define(["../const/constants"],function(constants){
         validateTelephoneNumber,
         validateMobilePhoneNumber,
         validateEmail,
-        validateBornDate
+        validateBornDate,
     }
 })
