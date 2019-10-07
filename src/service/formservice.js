@@ -30,11 +30,18 @@ define(["../const/constants"],function(constants){
         return constanst.REGEXP.ESTEL.test(number)
     }
 
+    const validateMobilePhoneNumber = (radiobutton,number) => {
+        if(!isSpainChecked(radiobutton)){
+            return constants.REGEXP.USAMOBILENUM.test(number);
+        }
+        return constants.REGEXP.ESMOBILENUM.test(number);
+    }
     return{
         validateName,
         validateSurname,
         validateAddress,
         validateCP,
-        validateTelephoneNumber
+        validateTelephoneNumber,
+        validateMobilePhoneNumber
     }
 })
