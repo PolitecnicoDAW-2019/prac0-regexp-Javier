@@ -12,26 +12,22 @@ define(["../const/constants"],function(constants){
         return constants.REGEXP.ADDRESS.test(address);
     }
 
-    const isSpainChecked = radiobutton => {
-        return radiobutton.checked;
-    }
-
-    const validateCP = (radiobutton,code) => {
-        if(!isSpainChecked(radiobutton)){
+    const validateCP = (isSpainSelected,code) => {
+        if(!isSpainSelected){
             return constants.REGEXP.USACP.test(code);
         }
         return constanst.REGEXP.ESCP.test(code);
     }
 
-    const validateTelephoneNumber = (radiobutton,number) => {
-        if(!isSpainChecked(radiobutton)){
+    const validateTelephoneNumber = (isSpainSelected,number) => {
+        if(!isSpainSelected){
             return constanst.REGEXP.USTEL.test(number);
         }
         return constanst.REGEXP.ESTEL.test(number)
     }
 
-    const validateMobilePhoneNumber = (radiobutton,number) => {
-        if(!isSpainChecked(radiobutton)){
+    const validateMobilePhoneNumber = (isSpainSelected,number) => {
+        if(!isSpainSelected){
             return constants.REGEXP.USAMOBILENUM.test(number);
         }
         return constants.REGEXP.ESMOBILENUM.test(number);
