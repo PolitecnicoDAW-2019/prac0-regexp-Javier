@@ -36,12 +36,17 @@ define(["../const/constants"],function(constants){
         }
         return constants.REGEXP.ESMOBILENUM.test(number);
     }
+
+    const validateEmail = email =>{
+        return constants.REGEXP.EMAIL.test(email)
+    }
     return{
         validateName,
         validateSurname,
         validateAddress,
         validateCP,
         validateTelephoneNumber,
-        validateMobilePhoneNumber
+        validateMobilePhoneNumber,
+        validateEmail
     }
 })
