@@ -18,8 +18,14 @@ const REGEXP = {
         "(?:\d{1,2}(?:0[48]|[2468][048]|[13579][26])|(?:0?[48]|[13579][26]|[2468][048])00))$"
 }
 
+const FONTAWESOME = {
+    WRONG : "fas fa-times-circle",
+    CORRECT :"fas fa-check-circle"
+}
+
 return{
-    REGEXP
+    REGEXP,
+    FONTAWESOME
 }
 
 })
