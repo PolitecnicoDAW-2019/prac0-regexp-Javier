@@ -40,6 +40,10 @@ define(["../const/constants"],function(constants){
     const validateEmail = email =>{
         return constants.REGEXP.EMAIL.test(email)
     }
+
+    const validateBornDate = borndate => {
+        return constants.REGEXP.BORNDATE.test(borndate)
+    }
     return{
         validateName,
         validateSurname,
@@ -47,6 +51,7 @@ define(["../const/constants"],function(constants){
         validateCP,
         validateTelephoneNumber,
         validateMobilePhoneNumber,
-        validateEmail
+        validateEmail,
+        validateBornDate
     }
 })
