@@ -22,7 +22,7 @@ const getPostalCodeFieldValue = () => {
 }
 
 const getTelephoneNumberFieldValue = () => {
-    return document.getElementById("telehponenum").value;
+    return document.getElementById("telephonenum").value;
 }
 
 const getMobilePhoneNumberFieldValue = () => {
@@ -41,16 +41,33 @@ const setStatus = (StatusId,icon) => {
     document.getElementById(StatusId).className = icon;
 }
 
-const enableSendButton = () => {
-    document.getElementById("sendbutton").removeAttribute("disabled");
+const compareStatus = object => {
+    if(object.NAME 
+        && object.SURNAME 
+        && object.ADDRESS
+        && object.POSTALCODE
+        && object.TELEPHONE
+        && object.MOBILE
+        && object.EMAIL
+        && object.BORNDATE){
+            return true
+        }
+    return false;
 }
 
-const executeFunction = id => {
-    document.getElementById(id).addEventListener('input',(element) => {
-        if(!element.target.value.length >= 3 ){
-            return false;
+const enableSendButton = () => {
+    if(compareStatus){
+   return document.getElementById("sendbutton").removeAttribute("disabled");}
+   return document.getElementById("sendbutton").setAttribute("disabled",true);
+}
+
+
+const executeFunction = (id,funct) => {
+    document.getElementById(id).addEventListener('input', element => {
+        if(element.target.value.length >= 3){
+            enableSendButton();
+            funct();
         }
-        return true;
     })
 }
 
