@@ -16,14 +16,14 @@ define(["../const/constants"],function(constants){
         if(!isSpainSelected){
             return constants.REGEXP.USACP.test(code);
         }
-        return constanst.REGEXP.ESCP.test(code);
+        return constants.REGEXP.ESCP.test(code);
     }
 
     const validateTelephoneNumber = (isSpainSelected,number) => {
         if(!isSpainSelected){
-            return constanst.REGEXP.USTEL.test(number);
+            return constants.REGEXP.USATEL.test(number);
         }
-        return constanst.REGEXP.ESTEL.test(number)
+        return constants.REGEXP.ESTEL.test(number)
     }
 
     const validateMobilePhoneNumber = (isSpainSelected,number) => {
@@ -37,8 +37,11 @@ define(["../const/constants"],function(constants){
         return constants.REGEXP.EMAIL.test(email)
     }
 
-    const validateBornDate = borndate => {
-        return constants.REGEXP.BORNDATE.test(borndate)
+    const validateBornDate = (isSpainSelected,borndate) => {
+        if(!isSpainSelected){
+            return constants.REGEXP.USABORNDATE.test(borndate)
+        }
+        return constants.REGEXP.ESBORNDATE.test(borndate)
     }
 
     return{
