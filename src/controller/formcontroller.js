@@ -111,12 +111,9 @@ define(["../const/constants"],function(constants){
             FormStatus.BORNDATE=true;
             return setStatusOk("BornDateStatus")
         }
-    
-    
-    const init = (service,view) => {
-        this.service = service;
-        this.view = view;
-        view.executeFunction("name",checkName);
+
+        const executer = () => {
+        Sview.executeFunction("name",checkName);
         view.executeFunction("surname",checkSurname);
         view.executeFunction("address",checkAdress);
         view.executeFunction("postalcode",checkPostalCode)
@@ -124,6 +121,13 @@ define(["../const/constants"],function(constants){
         view.executeFunction("mobilephonenum",checkMobilePhoneNumber);
         view.executeFunction("email",checkEmail);
         view.executeFunction("borndate",checkBornDate);
+        }
+    
+    
+    const init = (service,view) => {
+        this.service = service;
+        this.view = view;
+        executer();
     }
 
    
