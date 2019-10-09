@@ -1,18 +1,5 @@
 define(["../const/constants"],function(constants){
 
-    
-    const FormStatus = {
-        NAME:false,
-        SURNAME:false,
-        ADDRESS:false,
-        POSTALCODE:false,
-        TELEPHONE:false,
-        MOBILE:false,
-        EMAIL:false,
-        BORNDATE:true
-    }
-
-
     const setStatusWrong = id => {
         view.setStatus(id,constants.FONTAWESOME.WRONG);
     }
@@ -25,10 +12,10 @@ define(["../const/constants"],function(constants){
         let name = view.getNameFieldValue();
 
         if(!service.validateName(name)){
-            FormStatus.NAME=false;
+           view.FormStatus.NAME=false;
            return  setStatusWrong("NameStatus");
         }
-        FormStatus.NAME=true;
+        view.FormStatus.NAME=true;
        return setStatusOk("NameStatus");
 
     }
@@ -37,10 +24,10 @@ define(["../const/constants"],function(constants){
         let surname = view.getSurnameFieldValue();
 
         if(!service.validateSurname(surname)){
-            FormStatus.SURNAME=false;
+            view.FormStatus.SURNAME=false;
             return  setStatusWrong("SurnameStatus");
          }
-         FormStatus.SURNAME=true;
+         view.FormStatus.SURNAME=true;
         return setStatusOk("SurnameStatus");
  
      }
@@ -49,10 +36,10 @@ define(["../const/constants"],function(constants){
          let address = view.getAddressFieldValue();
 
          if(!service.validateAddress(address)){
-             FormStatus.ADDRESS=false;
+             view.FormStatus.ADDRESS=false;
              return setStatusWrong("AdressStatus");
          }
-         FormStatus.ADDRESS=true;
+         view.FormStatus.ADDRESS=true;
          return setStatusOk("AdressStatus");
      }
 
@@ -60,10 +47,10 @@ define(["../const/constants"],function(constants){
          let postalcode = view.getPostalCodeFieldValue();
 
          if(!service.validateCP(view.isSpainChecked(),postalcode)){
-             FormStatus.POSTALCODE=false;
+             view.FormStatus.POSTALCODE=false;
             return setStatusWrong("postalCodeStatus");
          }
-         FormStatus.POSTALCODE=true;
+         view.FormStatus.POSTALCODE=true;
          return setStatusOk("postalCodeStatus");
 
         }
@@ -72,10 +59,10 @@ define(["../const/constants"],function(constants){
             let telephone = view.getTelephoneNumberFieldValue();
 
             if(!service.validateTelephoneNumber(view.isSpainChecked(),telephone)){
-                FormStatus.TELEPHONE=false;
+                view.FormStatus.TELEPHONE=false;
                 return setStatusWrong("telephoneNumberStatus")
             }
-            FormStatus.TELEPHONE=true;
+            view.FormStatus.TELEPHONE=true;
             return setStatusOk("telephoneNumberStatus")
         }
 
@@ -83,10 +70,10 @@ define(["../const/constants"],function(constants){
             let number = view.getMobilePhoneNumberFieldValue();
 
             if(!service.validateMobilePhoneNumber(view.isSpainChecked(),number)){
-                FormStatus.MOBILE=false;
+                view.FormStatus.MOBILE=false;
                 return setStatusWrong("MobilePhoneNumberStatus")
             }
-            FormStatus.MOBILE=true;
+            view.FormStatus.MOBILE=true;
             return setStatusOk("MobilePhoneNumberStatus")
         }
 
@@ -94,10 +81,10 @@ define(["../const/constants"],function(constants){
             let email = view.getEmailFieldValue();
 
             if(!service.validateEmail(email)){
-                FormStatus.EMAIL=false;
+                view.FormStatus.EMAIL=false;
                 return setStatusWrong("EmailStatus")
             }
-            FormStatus.EMAIL=true;
+            view.FormStatus.EMAIL=true;
            return setStatusOk("EmailStatus")
         }
 
@@ -105,29 +92,28 @@ define(["../const/constants"],function(constants){
             let borndate = view.getBornDateFieldValue();
 
             if(!service.validateBornDate(view.isSpainChecked(),borndate)){
-                FormStatus.BORNDATE=false;
+                view.FormStatus.BORNDATE=false;
                 return setStatusWrong("BornDateStatus")
             }
-            FormStatus.BORNDATE=true;
+            view.FormStatus.BORNDATE=true;
             return setStatusOk("BornDateStatus")
-        }
+        }    
 
         const executer = () => {
-        view.executeFunction("name",checkName);
-        view.executeFunction("surname",checkSurname);
-        view.executeFunction("address",checkAdress);
-        view.executeFunction("postalcode",checkPostalCode)
-        view.executeFunction("telephonenum",checkTelephoneNumber);
-        view.executeFunction("mobilephonenum",checkMobilePhoneNumber);
-        view.executeFunction("email",checkEmail);
-        view.executeFunction("borndate",checkBornDate);
+            view.executeFunction("name",checkName);
+            view.executeFunction("surname",checkSurname);
+            view.executeFunction("address",checkAdress);
+            view.executeFunction("postalcode",checkPostalCode)
+            view.executeFunction("telephonenum",checkTelephoneNumber);
+            view.executeFunction("mobilephonenum",checkMobilePhoneNumber);
+            view.executeFunction("email",checkEmail);
+            view.executeFunction("borndate",checkBornDate);
         }
-    
     
     const init = (service,view) => {
         this.service = service;
         this.view = view;
-        executer();
+       executer();
     }
 
    
