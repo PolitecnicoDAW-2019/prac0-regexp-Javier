@@ -40,7 +40,16 @@ const getBornDateFieldValue = () => {
 const setStatus = (StatusId,icon) => {
     document.getElementById(StatusId).className = icon;
 }
-
+const FormStatus = {
+    NAME:false,
+    SURNAME:false,
+    ADDRESS:false,
+    POSTALCODE:false,
+    TELEPHONE:false,
+    MOBILE:false,
+    EMAIL:false,
+    BORNDATE:false
+}
 const compareStatus = object => {
     if(object.NAME 
         && object.SURNAME 
@@ -56,7 +65,7 @@ const compareStatus = object => {
 }
 
 const enableSendButton = () => {
-    if(compareStatus){
+    if(compareStatus(FormStatus)){
    return document.getElementById("sendbutton").removeAttribute("disabled");}
    return document.getElementById("sendbutton").setAttribute("disabled",true);
 }
@@ -83,6 +92,7 @@ return{
     getBornDateFieldValue,
     setStatus,
     enableSendButton,
-    executeFunction
+    executeFunction,
+    FormStatus
 }
 })
