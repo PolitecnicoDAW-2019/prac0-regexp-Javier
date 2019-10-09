@@ -113,7 +113,7 @@ define(["../const/constants"],function(constants){
         }
 
         const executer = () => {
-        Sview.executeFunction("name",checkName);
+        view.executeFunction("name",checkName);
         view.executeFunction("surname",checkSurname);
         view.executeFunction("address",checkAdress);
         view.executeFunction("postalcode",checkPostalCode)
